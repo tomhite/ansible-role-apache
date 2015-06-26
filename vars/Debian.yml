@@ -10,6 +10,6 @@ __apache_packages:
 
 apache_ports_configuration_items:
   - {
-    regexp: "^Listen ",
+    regexp: "^Listen {{ apache_listen_port }}$",
     line: "Listen {{ apache_listen_port }}"
   }

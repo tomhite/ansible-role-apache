@@ -2,6 +2,6 @@
 apache_vhosts_version: "2.4"
 apache_ports_configuration_items:
   - {
-    regexp: "^Listen ",
+    regexp: "^Listen {{ apache_listen_port }}$",
     line: "Listen {{ apache_listen_port }}"
   }
