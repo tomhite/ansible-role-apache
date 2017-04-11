@@ -3,6 +3,10 @@
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
 
+- name: Include ubuntu-16+ specific variables
+  include_vars: "{{ ansible_distribution }}-{{ ansible_lsb.major_release }}.yml"
+  when: ansible_distribution == 'Ubuntu' and ansible_lsb.major_release|int >=16
+
 - name: Define apache_packages.
   set_fact:
     apache_packages: "{{ __apache_packages | list }}"
